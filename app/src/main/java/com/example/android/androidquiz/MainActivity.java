@@ -32,13 +32,6 @@ public class MainActivity extends AppCompatActivity {
     User gets one point for each correct answer
      */
     int points = 0;
-    //List of entries for creating Pie chart
-    List<PieEntry> pieEntries = new ArrayList<>();
-    //PieChart showing ratio of right/wrong answers
-    PieChart answersPie;
-    //Shows number of points
-    TextView pointsResult;
-
 
     //Adds one point for every correct answer
     public void checkAnswers(View view) {
@@ -68,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
         answersDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
 
         //Settings of the chart
-        answersPie = (PieChart) findViewById(R.id.chart);
         PieChart answersPie = (PieChart) findViewById(R.id.chart);
         answersPie.setData(answers);
         answersPie.setVisibility(answersPie.VISIBLE);
@@ -102,5 +94,4 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(MainActivity);
     }
-
 }
