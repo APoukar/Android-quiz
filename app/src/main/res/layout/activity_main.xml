@@ -41,6 +41,7 @@
                 android:background="@color/colorFrame" />
 
             <RadioGroup
+                android:id="@+id/radiogroup_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp">
@@ -75,6 +76,7 @@
                 android:background="@color/colorFrame" />
 
             <RadioGroup
+                android:id="@+id/radiogroup_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp">
@@ -123,6 +125,7 @@
                 android:background="@color/colorFrame" />
 
             <RadioGroup
+                android:id="@+id/radiogroup_3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp">
@@ -157,6 +160,7 @@
                 android:background="@color/colorFrame" />
 
             <RadioGroup
+                android:id="@+id/radiogroup_4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp">
@@ -204,6 +208,7 @@
                 android:background="@color/colorFrame" />
 
             <RadioGroup
+                android:id="@+id/radiogroup_5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp">

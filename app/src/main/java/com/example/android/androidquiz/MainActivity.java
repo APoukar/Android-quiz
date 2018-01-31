@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.PieChart;
@@ -90,6 +91,11 @@ public class MainActivity extends AppCompatActivity {
         pieEntries.clear();
         answersPie.setVisibility(answersPie.GONE);
         switchButtons();
+        for (int i=1; i < 6; i++ ) {
+            int id = getResources().getIdentifier("radiogroup_" + i, "id", getPackageName());
+            RadioGroup radioGroup = (RadioGroup) findViewById(id);
+            radioGroup.clearCheck();
+        }
     }
 
 
