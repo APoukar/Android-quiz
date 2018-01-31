@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
@@ -58,18 +59,22 @@ public class MainActivity extends AppCompatActivity {
         //Creates DataSet from the list of entries
         PieDataSet answersDataSet = new PieDataSet(pieEntries, getString(R.string.correct_answers));
         PieData answers = new PieData(answersDataSet);
-        answersDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+        answersDataSet.setColors(new int[]{R.color.colorBackground, R.color.colorFrame},MainActivity.this);
+        answersDataSet.setDrawValues(false);    //Disables numbers of right/wrong answers in the chart
 
         //Settings of the chart
         PieChart answersPie = (PieChart) findViewById(R.id.chart);
         answersPie.setData(answers);
         answersPie.setVisibility(answersPie.VISIBLE);
-        answersPie.setUsePercentValues(true);
+        answersPie.setDrawEntryLabels(false);  //Disables labels of the chart
         answersPie.getDescription().setEnabled(false);  //Disables description of the chart
+        answersPie.animateXY(1500, 1500);
 
         //Disables legend of the Pie chart
         Legend legend = answersPie.getLegend();
         legend.setEnabled(false);
+
+
     }
 
     /*
