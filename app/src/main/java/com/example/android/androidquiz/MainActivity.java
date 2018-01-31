@@ -1,11 +1,13 @@
 package com.example.android.androidquiz;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.PieChart;
@@ -30,12 +32,13 @@ public class MainActivity extends AppCompatActivity {
     User gets one point for each correct answer
      */
     int points = 0;
-
     //List of entries for creating Pie chart
     List<PieEntry> pieEntries = new ArrayList<>();
-
-    //Defines Pie chart
+    //PieChart showing ratio of right/wrong answers
     PieChart answersPie;
+    //Shows number of points
+    TextView pointsResult;
+
 
     //Adds one point for every correct answer
     public void checkAnswers(View view) {
@@ -46,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
                 points += 1;
             }
         }
+        TextView pointsResult = (TextView) findViewById(R.id.points_view);
+        pointsResult.setText(points + "/5");
+        pointsResult.setVisibility(pointsResult.VISIBLE);
         setupPieChart();
         switchButtons();
     }
@@ -74,6 +80,10 @@ public class MainActivity extends AppCompatActivity {
         legend.setEnabled(false);
     }
 
+    /*
+    Checks which of the two buttons is visible,
+    hides it and shows the other one
+     */
     private void switchButtons() {
         Button checkAnswersButton = (Button) findViewById(R.id.check_answers);
         Button resetButton = (Button) findViewById(R.id.reset);
@@ -86,21 +96,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void resetQuiz(View view) {
-        points = 0;
-        pieEntries.clear();
-        answersPie.setVisibility(answersPie.GONE);
-        switchButtons();
-        for (int i=1; i < 6; i++ ) {
-            int id = getResources().getIdentifier("radiogroup_" + i, "id", getPackageName());
-            RadioGroup radioGroup = (RadioGroup) findViewById(id);
-            radioGroup.clearCheck();
-        }
+    public void resetQuiz (View view){
+        Intent MainActivity = getBaseContext().getPackageManager()
+                .getLaunchIntentForPackage( getBaseContext().getPackageName() );
+        MainActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(MainActivity);
     }
-
-
-
-
-
 
 }
