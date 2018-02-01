@@ -53,13 +53,13 @@ public class MainActivity extends AppCompatActivity {
     private void setupPieChart() {
         //Creates list of entries
         List<PieEntry> pieEntries = new ArrayList<>();
-        pieEntries.add(new PieEntry(points, getString(R.string.correct_answers)));
         pieEntries.add(new PieEntry((5 - points), getString(R.string.wrong_answers)));
+        pieEntries.add(new PieEntry(points, getString(R.string.correct_answers)));
 
         //Creates DataSet from the list of entries
         PieDataSet answersDataSet = new PieDataSet(pieEntries, getString(R.string.correct_answers));
         PieData answers = new PieData(answersDataSet);
-        answersDataSet.setColors(new int[]{R.color.colorBackground, R.color.colorFrame},MainActivity.this);
+        answersDataSet.setColors(new int[]{R.color.colorFrame, R.color.colorChart},MainActivity.this);
         answersDataSet.setDrawValues(false);    //Disables numbers of right/wrong answers in the chart
 
         //Settings of the chart
