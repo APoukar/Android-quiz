@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //Resets the whole activity
     public void resetQuiz (View view){
         Intent MainActivity = getBaseContext().getPackageManager()
                 .getLaunchIntentForPackage( getBaseContext().getPackageName() );
