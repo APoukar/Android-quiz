@@ -8,16 +8,17 @@
     <string name="activity">Activity</string>
     <string name="question_2">The basic building element of XML User interface is:</string>
     <string name="question_3">Android is a Linux based operating system:</string>
-    <string name="question_4">___ represents a single user interface screen</string>
-    <string name="question_5">Specify the directory where colors.xml file is stored:</string>
-    <string name="res_values">main/res/values</string>
-    <string name="res_layout">main/res/layout</string>
-    <string name="res">main/res</string>
-    <string name="manifests">main/manifests</string>
+    <string name="question_4">What represents a single user interface screen?</string>
+    <string name="question_5">What are the code names of Android?</string>
+    <string name="bonbon">Bonbon</string>
+    <string name="donut">Donut</string>
+    <string name="honeycomb">Honeycomb</string>
+    <string name="jelly_bean">Jelly Bean</string>
     <string name="yes">True</string>
     <string name="no">False</string>
     <string name="correct_answers">Correct answers</string>
     <string name="wrong_answers">Wrong answers</string>
     <string name="check">Check answers</string>
     <string name="reset">Reset</string>
+    <string name="your_answer">Your answer</string>
 </resources>

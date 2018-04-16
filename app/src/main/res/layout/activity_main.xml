@@ -8,6 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorFrame"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:orientation="vertical"
         tools:context="com.example.android.androidquiz.MainActivity">
 
@@ -159,41 +161,13 @@
                 android:layout_height="1dp"
                 android:background="@color/colorFrame" />
 
-            <RadioGroup
-                android:id="@+id/radiogroup_4"
+            <EditText
+                android:id="@+id/edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp">
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="16dp"
-                    android:text="@string/view"
-                    android:textColor="@android:color/darker_gray" />
-
-                <RadioButton
-                    android:id="@+id/answer_4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="16dp"
-                    android:text="@string/activity"
-                    android:textColor="@android:color/darker_gray" />
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="16dp"
-                    android:text="@string/layout"
-                    android:textColor="@android:color/darker_gray" />
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="16dp"
-                    android:text="@string/attribute"
-                    android:textColor="@android:color/darker_gray" />
-            </RadioGroup>
+                android:layout_margin="8dp"
+                android:hint="@string/your_answer"
+                android:maxLines="1" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -207,78 +181,75 @@
                 android:layout_height="1dp"
                 android:background="@color/colorFrame" />
 
-            <RadioGroup
-                android:id="@+id/radiogroup_5"
-                android:layout_width="match_parent"
+            <CheckBox
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="8dp"
+                android:id="@+id/check_1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp">
+                android:text="@string/bonbon"/>
 
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="16dp"
-                    android:text="@string/res_layout"
-                    android:textColor="@android:color/darker_gray" />
+            <CheckBox
+                android:layout_marginLeft="8dp"
+                android:id="@+id/check_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/donut"/>
 
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="16dp"
-                    android:text="@string/res"
-                    android:textColor="@android:color/darker_gray" />
+            <CheckBox
+                android:layout_marginLeft="8dp"
+                android:id="@+id/check_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/honeycomb"/>
 
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="16dp"
-                    android:text="@string/manifests"
-                    android:textColor="@android:color/darker_gray" />
-
-                <RadioButton
-                    android:id="@+id/answer_5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="16dp"
-                    android:text="@string/res_values"
-                    android:textColor="@android:color/darker_gray" />
-
-            </RadioGroup>
+            <CheckBox
+                android:layout_marginLeft="8dp"
+                android:id="@+id/check_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/jelly_bean"/>
 
             <Button
+                android:layout_margin="8dp"
                 android:id="@+id/check_answers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="checkAnswers"
                 android:layout_gravity="center_horizontal"
+                android:onClick="submitAnswers"
                 android:text="@string/check" />
 
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                    <com.github.mikephil.charting.charts.PieChart
-                        android:id="@+id/chart"
-                        android:layout_width="250dp"
-                        android:layout_height="250dp"
-                        android:layout_centerInParent="true"
-                        android:visibility="gone" />
-                    <TextView
-                        android:id="@+id/points_view"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:visibility="gone"
-                        android:textColor="@color/colorFrame"
-                        android:textSize="40sp" />
+
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/chart"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:layout_centerInParent="true"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/points_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/colorFrame"
+                    android:textSize="40sp"
+                    android:visibility="gone" />
             </RelativeLayout>
+
             <Button
+                android:layout_margin="8dp"
                 android:id="@+id/reset"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="resetQuiz"
                 android:layout_gravity="center_horizontal"
+                android:onClick="resetQuiz"
                 android:text="@string/reset"
-                android:visibility="gone"/>
+                android:visibility="gone" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
