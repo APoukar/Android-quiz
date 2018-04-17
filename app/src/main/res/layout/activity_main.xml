@@ -6,7 +6,7 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/colorFrame"
         android:focusable="true"
         android:focusableInTouchMode="true"
@@ -167,6 +167,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:hint="@string/your_answer"
+                android:inputType="text"
                 android:maxLines="1" />
 
             <TextView
@@ -182,40 +183,40 @@
                 android:background="@color/colorFrame" />
 
             <CheckBox
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="8dp"
                 android:id="@+id/check_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/bonbon"/>
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/bonbon" />
 
             <CheckBox
-                android:layout_marginLeft="8dp"
                 android:id="@+id/check_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/donut"/>
+                android:layout_marginLeft="8dp"
+                android:text="@string/donut" />
 
             <CheckBox
-                android:layout_marginLeft="8dp"
                 android:id="@+id/check_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/honeycomb"/>
+                android:layout_marginLeft="8dp"
+                android:text="@string/honeycomb" />
 
             <CheckBox
-                android:layout_marginLeft="8dp"
                 android:id="@+id/check_4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/jelly_bean"/>
+                android:layout_marginLeft="8dp"
+                android:text="@string/jelly_bean" />
 
             <Button
-                android:layout_margin="8dp"
                 android:id="@+id/check_answers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_margin="8dp"
                 android:onClick="submitAnswers"
                 android:text="@string/check" />
 
@@ -242,11 +243,11 @@
             </RelativeLayout>
 
             <Button
-                android:layout_margin="8dp"
                 android:id="@+id/reset"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_margin="8dp"
                 android:onClick="resetQuiz"
                 android:text="@string/reset"
                 android:visibility="gone" />

@@ -36,14 +36,16 @@ public class MainActivity extends AppCompatActivity {
      * Number of points
      * User gets one point for each correct answer
      */
-    int points = 0;
+    int points;
+    int numberOfQuestions = 5;
 
     public void submitAnswers(View view) {
         checkRadioButtons();
         checkEditText();
         checkCheckBoxes();
+        displayToast();
         TextView pointsResult = findViewById(R.id.points_view);
-        pointsResult.setText(points + "/7");
+        pointsResult.setText(points + "/" + numberOfQuestions);
         pointsResult.setVisibility(View.VISIBLE);
         setupPieChart();
         switchButtons();
@@ -70,8 +72,8 @@ public class MainActivity extends AppCompatActivity {
      */
     private void checkEditText() {
         EditText answerEditText = (EditText) findViewById(R.id.edit_text);
-        String answerString = answerEditText.getText().toString().toLowerCase();
-        if (answerString.equals("activity")) {
+        String answerString = answerEditText.getText().toString().trim();
+        if (answerString.equalsIgnoreCase("activity")) {
             points += 1;
         }
     }
@@ -81,19 +83,28 @@ public class MainActivity extends AppCompatActivity {
      * one point for every correct answer
      */
     private void checkCheckBoxes() {
-        for (int i = 2; i < 5; i++) {
-            int id = getResources().getIdentifier("check_" + i, "id", getPackageName());
-            CheckBox checkBox = findViewById(id);
-            if(checkBox.isChecked()) {
-                points += 1;
-            }
+        CheckBox checkBox1 = findViewById(R.id.check_1);
+        CheckBox checkBox2 = findViewById(R.id.check_2);
+        CheckBox checkBox3 = findViewById(R.id.check_3);
+        CheckBox checkBox4 = findViewById(R.id.check_4);
+        if (!checkBox1.isChecked() && checkBox2.isChecked()
+                && checkBox3.isChecked() && checkBox4.isChecked()) {
+            points += 1;
         }
+    }
+
+    //Displays toast with a number of received points
+    private void displayToast() {
+        Toast toast = Toast.makeText(getApplicationContext(),
+                "Congrats! You have achieved " + points + " points!",
+                Toast.LENGTH_LONG);
+        toast.show();
     }
 
     private void setupPieChart() {
         //Creates list of entries
         List<PieEntry> pieEntries = new ArrayList<>();
-        pieEntries.add(new PieEntry((7 - points), getString(R.string.wrong_answers)));
+        pieEntries.add(new PieEntry((numberOfQuestions - points), getString(R.string.wrong_answers)));
         pieEntries.add(new PieEntry(points, getString(R.string.correct_answers)));
 
         //Creates DataSet from the list of entries
